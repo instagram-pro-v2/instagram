@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+form{
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+.container{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo-img{
+    height: 87px;
+    filter: contrast(1.25);
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+.username{
+height: 34px;
+width: 260px;
+border: solid 1px #DBDBDB;
+border-radius: 3px; 
+padding-left: 10px;
+background-color: #FAFAFA;
+}
+.password{
+height: 34px;
+width: 260px;
+margin-top: 8px;
+border: solid 1px #DBDBDB;
+border-radius: 3px;
+padding-left: 10px;
+background-color: #FAFAFA;
+}
+.login_btn {
+height: 32px;
+width: 270px;
+margin-top: 15px;
+border: solid 1px #2cabff;
+border-radius: 7px;
+color: white;
+background-color: #2cabff;
+font-weight: 600;
+}
+.or-line{
+margin-top: 15px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.or{
+   
+    color: #737373;
+    font-weight: 500;
+    font-size: 14px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.facebook{
+    margin-top: 25px;
+    color: #385185; 
+    font-weight: 500;
+}
+.lines{
+    color: #737373;
+}
+.forgot{
+    margin-top: 25px;
+    font-weight: 500;
+    font-size: 13px;
+}
+hr{
+    width: 100px;
+    color: #DBDBDB;
+}
+.signup{
+    margin-top: 50px;
+    font-size: 15px;
+    font-weight: 500;
+}
+a{
+    text-decoration: none;
+    color: #2cabff;
+}
+.foot{
+position: absolute;
+text-align: center;
+bottom: 0;
+display: flex;
+flex-wrap: wrap;
+margin-right: 20px;
+margin-left: 35px;
+margin-bottom: 10px;
+
+}
+.foot p{
+    color: #737373;
+    font-size: 12px;
+        /* Reset default paragraph margin */
+        padding: 10px;
+}
