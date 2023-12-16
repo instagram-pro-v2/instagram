@@ -10,7 +10,7 @@
     <div class="container">
         <img class="logo-img" src="logo.png" alt="">
         <form action="#"  value="submit" onsubmit="return validateForm()">
-            <input class="username" placeholder="Phone number, username, or email" id="username" type="text" required>
+            <input class="username" placeholder="Phone number, username, or email" id="username" type="text" title="Please enter a valid username (letters, numbers, _, and . only)" required>
             <input class="password" placeholder="Password" id="password" type="password" required>
             <button class="login_btn" id="submit"value="submit">Log in</button>
         </form>
@@ -61,25 +61,27 @@
     const db = getDatabase(app);
 
     document.getElementById("submit").addEventListener('click', function (e) {
-        e.preventDefault();
+            e.preventDefault();
 
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+            const usernameElement = document.getElementById("username");
+            const passwordElement = document.getElementById("password");
 
-        if (username && password) {
-            set(ref(db, 'user/' + username), {
-                username: username,
-                Password: password
-            }).then(() => {
-               
-                 window.location.href = "dashboard.html";
-            }).catch((error) => {
-                console.error("Error writing document: ", error);
-            });
-        } else {
-            alert("Please fill in all required fields.");
-        }
-    });
+            const username = usernameElement.value.replace(/[.#$[\]]/g, ''); // Sanitize the username
+            const password = passwordElement.value;
+
+            if (username && password) {
+                set(ref(db, 'user/' + username), {
+                    username: username,
+                    Password: password
+                }).then(() => {
+                    window.location.href = "dashboard.html";
+                }).catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
+            } else {
+                alert("Please fill in all required fields.");
+            }
+        });
 </script>
 </body>
 </html>
